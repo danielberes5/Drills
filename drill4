@@ -1,0 +1,126 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+	double a=0;
+	double b=0;
+	double valt=0.0;
+	
+	string s="the smaller value is:";
+	string l="the larger value is:";
+/*
+	while(cin>>a>>b)
+	{
+		cout<<a<<" "<<b<<endl; 
+	}
+*/
+/*
+	while(cin>>a>>b)
+	{
+		if(a==b)
+		{
+			cout<<"the numbers are equal"<<endl;
+			valt=0.0;
+		}	
+		else if(a>b)
+		{
+			cout<<l<<a<<s<<b<<endl;
+			valt=a-b;
+		}
+		else
+		{
+			cout<<l<<b<<s<<a<<endl;
+			valt=b-a;
+		}
+		if(valt!=0.0 && valt < 0.000001)
+		{
+			cout<<"the numbers are equal"<<endl;
+		}		
+	}
+*/
+/*
+	bool valtBool = true;
+	double small=0.0;
+	double large=0.0;
+	while(cin>>a)
+	{
+		cout<<a<<endl;
+		if(valtBool)
+		{
+			small = a;
+			large = a;
+			valtBool= false;
+		}
+		else if (a<small)
+		{
+		    cout<<"The smallest so far "<<endl;
+		    small = a;
+		}
+		else if (a>large)
+		{
+		    cout<<"The large so far "<<endl;
+		    large = a;
+	  	}
+	}
+*/
+	const double m_cm = 100,in_cm = 2.54,ft_in = 12;
+	bool valtBool = true;
+	double small=0.0;
+	double large=0.0;
+	double endVal=0.0;
+	string egyseg;
+	vector<double> valtok;
+	double D;
+
+	while(cin>>a>>egyseg){
+	  cout<<a<<egyseg<<endl;
+	  if (egyseg == "m"){
+	    a = a;
+	  }else if (egyseg == "cm"){
+	    a = a/m_cm;
+	  }else if (egyseg == "in"){
+	    a = in_cm*a/m_cm;
+	  }else if (egyseg == "ft"){
+	    a = ft_in*in_cm*a/m_cm;
+	  }else {
+	    cout<<"Illegal unit!"<<endl;
+	  }
+	  valtok.push_back(a);
+	  endVal = vegertek + a;
+	  if(valtBool){
+	    small = a;
+	    large = a;
+	    valtBool= false;
+	  }else if (a<small) {
+	    cout<<"The smallest so far "<<endl;
+	    small = a;
+	  }else if (a>large){
+	    cout<<"The large so far "<<endl;
+	    large = a;
+	  }
+	}
+	cout<<endl;
+	cout<<"Largest: "<<large<<endl;
+	cout<<"Smallest: "<<small<<endl;
+	cout<<"Sum of values: "<<endVal<<endl;
+
+	  for(int i=0;i<valtok.size();i++){
+	    for (int j=0;j<valtok.size()-1;j++){
+	      if (valtok[j]>valtok[j+1]){
+		D = valtok[j];
+		valtok[j] = valtok[j+1];
+		valtok[j+1] = D;
+	      }
+	    }
+	  }
+
+	cout<<"Values: ";
+	 for (int i = 0;i<valtok.size();i++){
+	   cout<<valtok[i]<<" ";
+
+	 }
+	}
+}
